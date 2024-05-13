@@ -1,3 +1,6 @@
+using Application;
+using Persistence;
+
 namespace NasaApi;
 
 public class Program
@@ -10,6 +13,9 @@ public class Program
         
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddPersistenceServices(builder.Configuration);
+        builder.Services.AddApplicationServices(builder.Configuration);
 
         var app = builder.Build();
 
