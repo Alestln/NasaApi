@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Application.Profiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,5 +11,7 @@ public static class ApplicationRegistration
     {
         services.AddMediatR(cfg => 
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+        services.AddAutoMapper(typeof(LogRecordProfile).Assembly);
     }
 }
